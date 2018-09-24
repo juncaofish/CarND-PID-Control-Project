@@ -37,7 +37,7 @@ int main() {
 
     // Instance for steer pid and speed pid
     PID pid_steer, pid_speed;
-    pid_steer.Init(0.07, 0.0002, 1.0);
+    pid_steer.Init(0.07, 0.0002, 2.0);
     pid_speed.Init(1, 0.001, .5);
 
     h.onMessage([&pid_steer, &pid_speed](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
