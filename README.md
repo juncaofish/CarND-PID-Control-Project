@@ -1,7 +1,21 @@
 # CarND-Controls-PID
 Self-Driving Car Engineer Nanodegree Program
-
 ---
+### What's a PID controller
+A proportional–integral–derivative controller ([PID controller](https://en.wikipedia.org/wiki/PID_controller)) is a control loop feedback mechanism widely used in industrial control systems and a variety of other applications requiring continuously modulated control. A PID controller continuously calculates an error value e(t) as the difference between a desired setpoint (SP) and a measured process variable (PV)(which in our case is the distance from the center of the lane) and applies a correction based on proportional, integral, and derivative terms (denoted P, I, and D respectively), hence the name.
+### Choosing PID Parameters
+The behavior of a PID controller depends on three main parameters, namely the proportional, integral and derivative gain. Each one of these three parameters controls the strenght of the respective controller's response. In particular:
+
+* Proportional gain regulates how large the change in the output will be for a given difference in the error. If the proportional gain is too high, the system can become unstable.
+* Integral gain contributes in proportion to both the magnitude of the error and the duration of the error. In this way controller is able to eliminate the residual steady-state error that occurs with a pure proportional controller and is able to deal with systematic biases.
+* Derivative gain decides how much the error's rate of change is taken into account when computing the response. In other words, if the desired setting point is getting closer (= error is decreasing) the response must be smoothed in order not to overshoot the target. Derivative component benefits the system's stability and settling time.
+
+In the current project, parameters have been manually tuned by the actual driving behaviour in the simulator in response to parameter's changes (instead of twiddle algorithm). 
+* P controller is firstly applied, by increasing the proportional gain step by step until the car is driving unstable. 
+* PD controller is later applied to avoid the overshoot. 
+* Finally, the I term is introduced to eliminate the steady state error. 
+
+Parameter's validation could also be easily performed automatically in a simulator in which headless mode was available.
 
 ## Dependencies
 
